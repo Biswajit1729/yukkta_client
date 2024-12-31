@@ -1,31 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'theme.dart';
-import 'login.dart';
-import 'onboarding.dart';
 
-void main() {
-  runApp(const MyApp());
-  Get.put(LoginController()); // Initialize LoginController
-  Get.put(OnboardingController()); // Initialize OnboardingController
+import 'index.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeControllers();
+
+  // Check if the user is logged in
+  bool isLoggedIn = await Get.find<LoginController>().isLoggedIn();
+
+  runApp(MyApp(isLoggedIn: isLoggedIn));
+}
+
+Future<void> initializeControllers() async {
+  Get.put(LoginController());
+  Get.put(OnboardingController());
+  Get.put(ProfileSetupController());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isLoggedIn;
+
+  const MyApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Yukkta',
+      title: AppConstants.appName,
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.system, // Automatically switch between light and dark themes
-      initialRoute: '/onboarding',
-      getPages: [
-        GetPage(name: '/onboarding', page: () => const OnboardingPage()),
-        GetPage(name: '/login', page: () => const LoginPage()),
-        GetPage(name: '/home', page: () => const MyHomePage(title: 'Yukkta Home Page')),
-      ],
+      initialRoute: isLoggedIn ? '/home' : '/onboarding',
+      getPages: AppRoutes.routes,
       debugShowCheckedModeBanner: false, // Remove debug banner
     );
   }
