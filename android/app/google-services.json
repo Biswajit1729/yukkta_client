@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "626904367675",
+    "project_id": "yukkta-7d66d",
+    "storage_bucket": "yukkta-7d66d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626904367675:android:68892094bda79ed0ec921e",
+        "android_client_info": {
+          "package_name": "com.yukkta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "626904367675-fhddnbg0kk1rdu5qlis0hdiqcfbfh3fa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yukkta",
+            "certificate_hash": "dbebabef6b8903db1cc9608e8242420dff7535bd"
+          }
+        },
+        {
+          "client_id": "626904367675-m68ms1o8r476sk9696m86c1oufu1oqvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIlrC1114qPPiF2KKV2jtpLKho657ny2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626904367675-m68ms1o8r476sk9696m86c1oufu1oqvm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
