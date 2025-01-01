@@ -2,6 +2,6 @@
 
 class AppConstants {
   static const String appName = 'Yukkta';
-  static const String homeTitle = 'Yukkta Home Page';
+  static const String homeTitle = 'Yukkta';
   // Add more constants as needed
 }

@@ -7,7 +7,7 @@ class OnboardingController extends GetxController {
 
   // Navigate to the next page or to the login screen if on the last page
   void nextPage() {
-    if (currentIndex < 2) {
+    if (currentIndex < 1) {
       pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.ease);
     } else {
       Get.offAllNamed('/login');

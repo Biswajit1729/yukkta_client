@@ -61,34 +61,31 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(widget.title, style: Theme.of(context).textTheme.headlineMedium),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Theme.of(context).primaryColor,
               ),
               child: Text(
                 'Drawer Header',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
               ),
             ),
             ListTile(
               leading: const Icon(Icons.home),
-              title: const Text('Home'),
+              title: Text('Home', style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
+              title: Text('Logout', style: Theme.of(context).textTheme.bodyMedium),
               onTap: () {
                 Get.find<LoginController>().logout();
               },
@@ -100,18 +97,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Text(
+              'Home',
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
-            GetBuilder<CounterController>(
-              init: CounterController(),
-              builder: (controller) {
-                return Text(
-                  '${controller.counter}',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                );
-              },
-            ),
+            // GetBuilder<CounterController>(
+            //   init: CounterController(),
+            //   builder: (controller) {
+            //     return Text(
+            //       '${controller.counter}',
+            //       style: Theme.of(context).textTheme.headlineMedium,
+            //     );
+            //   },
+            // ),
           ],
         ),
       ),
@@ -122,22 +120,23 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.local_shipping_outlined),
+            label: 'delivery',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.medical_services),
+            label: 'consultations',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: Theme.of(context).primaryColor,
         onTap: _onItemTapped,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Get.find<CounterController>().increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }
